@@ -8,8 +8,8 @@
 Ingredient.destroy_all
 Cocktail.destroy_all
 
-Cocktail.new(name: "Blue Ocean")
-Cocktail.new(name: "Batida Brazil")
+Cocktail.create(name: "Blue Ocean")
+Cocktail.create(name: "Batida Brazil")
 
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
