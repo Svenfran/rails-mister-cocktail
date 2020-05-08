@@ -1,0 +1,12 @@
+  
+<h1>Add Cocktail</h1>
+
+<%= link_to 'Back', cocktails_path(@cocktail) %>
+
+<div class="p-5">
+  <%= simple_form_for(@cocktail) do |form| %>
+    <%= form.input :name %>
+    <%= form.input :photo, as: :file %>
+    <%= form.submit %>
+  <% end %>
+</div>

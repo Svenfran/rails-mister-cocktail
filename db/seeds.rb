@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Ingredient.destroy_all
-Cocktail.destroy_all
+# Cocktail.destroy_all
 
-Cocktail.create(name: "Blue Ocean")
-Cocktail.create(name: "Batida Brazil")
+# Cocktail.create(name: "Blue Ocean")
+# Cocktail.create(name: "Batida Brazil")
 
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
