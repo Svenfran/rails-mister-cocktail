@@ -7,7 +7,7 @@
     <% @cocktails.each do |cocktail| %>
       <div class="col-sm-4">
         <div class="card mb-3" style="width: 18rem;">
-          <% if cocktail.photo.key%>
+          <% if cocktail.photo.attached?%>
           <%= cl_image_tag cocktail.photo.key, crop: :fill, class: "card-img-top", alt: "Card image cap" %>
           <%end%>
           <div class="card-body">
