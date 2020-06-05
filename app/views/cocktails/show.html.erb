@@ -9,9 +9,26 @@
       <div class="card-body">
         <h5 class="card-title"><%= @cocktail.name%></h5>
         <p class="card-text">
-          Ingredients - doses
-        
+          Add Ingredient
+          <%= link_to new_cocktail_dose_path(@cocktail) do %>
+            <i class="fas fa-plus"></i>
+          <% end %>
         </p>
+        <ul>
+            <% @cocktail.doses.each do |dose| %>
+              <% @cocktail.ingredients.each do |ingredient| %>
+                <% if dose.ingredient_id == ingredient.id %>
+                  <li>
+                    <%= dose.description %>
+                    <%= ingredient.name %>
+                    <%= link_to dose_path(dose), method: :delete, data: {confirm: 'Are you sure?'} do %>
+                      <i class="far fa-trash-alt"></i>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% end %>
+            <% end %>
+        </ul>
       </div>
     </div>
   </div>

@@ -1,0 +1,9 @@
+
+<div class="container mt-5">
+  <%= simple_form_for([@cocktail, @dose]) do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.submit "Submit", class: "btn btn-info" %>
+    <%= link_to 'Cancel', cocktail_path(@cocktail), class: 'btn btn-dark' %>
+  <% end %>
+</div>
