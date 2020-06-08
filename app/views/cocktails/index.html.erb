@@ -1,23 +1,19 @@
-<h1>Cocktails</h1>
-
-<%= link_to 'Add Cocktail', new_cocktail_path(@cocktail) %> |
-<%= link_to 'Home', root_path(@cocktail) %>
 
 <div class="container">
+  <h1 class="my-5 text-center text-white">Our Cocktails</h1>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-sm-4">
-        <div class="card mb-3" style="width: 18rem;">
-          <% if cocktail.photo.attached?%>
-          <%= cl_image_tag cocktail.photo.key, crop: :fill, class: "card-img-top", alt: "Card image cap" %>
-          <%end%>
-          <div class="card-body">
-            <h5 class="card-title"><%= cocktail.name%></h5>
-            <p class="card-text"></p>
-            
-            <%= link_to 'Receip', cocktail_path(cocktail), class: "btn btn-success" %>
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card mb-3">
+            <% if cocktail.photo.attached? %>
+              <%= cl_image_tag cocktail.photo.key, crop: :fill, class: "card-img-top", alt: "Card image cap" %>
+            <% end %>
+            <div class="card-body">
+              <h5><%= cocktail.name %></h5>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>

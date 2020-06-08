@@ -5,10 +5,15 @@
 <div class="container">
   <div class="row">
     <div class="card mb-3" style="width: 18rem;">
-      <%= cl_image_tag @cocktail.photo.key, crop: :fill, class: "card-img-top", alt: "Card image cap" %>
+      <% if @cocktail.photo.attached? %>
+        <%= cl_image_tag @cocktail.photo.key, crop: :fill, class: "card-img-top", alt: "Card image cap" %>
+      <% end %>
       <div class="card-body">
-        <h5 class="card-title"><%= @cocktail.name%></h5>
-        <p class="card-text">
+        <h5 class="card-title"><%= @cocktail.name%>
+          <%= link_to edit_cocktail_path(@cocktail) do %>
+            <i class="fas fa-edit"></i>
+          <% end  %>
+        </h5>
           Add Ingredient
           <%= link_to new_cocktail_dose_path(@cocktail) do %>
             <i class="fas fa-plus"></i>

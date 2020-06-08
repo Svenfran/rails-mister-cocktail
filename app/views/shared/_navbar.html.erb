@@ -1,0 +1,19 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <div class="d-flex justify-center text-white">  
+      <i class="fas fa-glass-martini-alt"></i>
+      <h6 class="ml-2">Home</h6>
+    </div>
+  <% end %>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Add a Cocktail", new_cocktail_path(@cocktail), class: "nav-link text-white" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "See all Cocktails", cocktails_path, class: "nav-link text-white" %>
+      </li>
+    </ul>
+  </div>
+</div>

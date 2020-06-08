@@ -12,6 +12,10 @@
   </head>
 
   <body>
+    <% unless controller_name == 'pages' %>
+      <%= render './shared/navbar' %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

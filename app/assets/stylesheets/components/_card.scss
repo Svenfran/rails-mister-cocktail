@@ -1,0 +1,18 @@
+.card {
+  background: whitesmoke;
+  border: none;
+  box-shadow: 0px 0px 21px 3px rgba(0,0,0,0.15);
+}
+
+a:hover {
+  text-decoration: none;
+}
+.card img {
+  object-fit: cover;
+  height: 200px;
+}
+
+.card-body {
+  color: #222222;
+}
+

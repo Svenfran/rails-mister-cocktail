@@ -1,0 +1,12 @@
+<div class="container mt-5">
+  <%= simple_form_for(@cocktail) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Add", class: "btn btn-info" %>
+    <% if @cocktail.id %>
+      <%= link_to 'Cancel', cocktail_path(@cocktail), class: 'btn btn-dark' %>
+    <% else %>
+      <%= link_to 'Cancel', cocktails_path, class: 'btn btn-dark' %>
+    <% end %>
+  <% end %>
+</div>
