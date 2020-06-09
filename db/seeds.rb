@@ -9,7 +9,7 @@ require 'open-uri'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-DESTROY EXIXTING DATA
+# DESTROY EXIXTING DATA
 
 Ingredient.destroy_all
 # Cocktail.destroy_all
@@ -47,8 +47,10 @@ drink_ids.each do |id|
   cocktail_details = open(url).read
   result = JSON.parse(cocktail_details)
 
-  Cocktail.create(name: result['strDrink'])
+  Cocktail.create(name: result['drinks'][0]['strDrink'])
   
+  ingredients = Ingredient.all
+
 end
 # n = 1
 #   15.times do

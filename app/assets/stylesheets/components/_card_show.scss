@@ -1,0 +1,45 @@
+.far, .fas {
+  &:hover {
+  // color: #BB4430;
+  // color: #FF5E5B;
+  color: #FFB934;
+  }
+}
+
+.show-card {
+  height: 600px;
+  display: flex;
+  justify-content: flex-start;
+  width: 70vw;
+  margin: 32px auto 0 auto;
+  background: #F5F5F5;
+  padding: 16px;
+  border-radius: 4px;
+  i {
+    color: #222222;
+    font-size: 16px;
+    margin-left: 8px;
+  }
+}
+
+.show-card-title {
+  margin-bottom: 0px;
+}
+.show-card-body {
+  margin-left: 64px;
+  margin-top: 48px;
+}
+
+.show-card-img {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+ul {
+  padding-left: 16px;
+}
+ul > li {
+  list-style: none;
+  margin-bottom: 8px;
+}

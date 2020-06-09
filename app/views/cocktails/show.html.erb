@@ -1,24 +1,24 @@
-<h1>Receip</h1>
-
-<%= link_to 'Back', cocktails_path(@cocktail) %>
 
 <div class="container">
-  <div class="row">
-    <div class="card mb-3" style="width: 18rem;">
+  <%# <h1 class="my-5 text-center text-white">Receip</h1> %>
+  <div class="">
+    <div class="show-card">
       <% if @cocktail.photo.attached? %>
-        <%= cl_image_tag @cocktail.photo.key, crop: :fill, class: "card-img-top", alt: "Card image cap" %>
+        <%= cl_image_tag @cocktail.photo.key, crop: :fill, class: "show-card-img", alt: "Card image cap" %>
       <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= @cocktail.name%>
+      <div class="show-card-body">
+        <div class="d-flex align-items-center mb-5">
+          <h3 class="show-card-title"><%= @cocktail.name%></h3>
           <%= link_to edit_cocktail_path(@cocktail) do %>
             <i class="fas fa-edit"></i>
           <% end  %>
-        </h5>
-          Add Ingredient
-          <%= link_to new_cocktail_dose_path(@cocktail) do %>
-            <i class="fas fa-plus"></i>
-          <% end %>
-        </p>
+        </div>
+          <div class="d-flex">
+            <h5 class="mb-4">Add Ingredient</h5>
+            <%= link_to new_cocktail_dose_path(@cocktail) do %>
+              <i class="fas fa-plus"></i>
+            <% end %>
+          </div>
         <ul>
             <% @cocktail.doses.each do |dose| %>
               <% @cocktail.ingredients.each do |ingredient| %>
