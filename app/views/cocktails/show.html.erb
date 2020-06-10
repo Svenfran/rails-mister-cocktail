@@ -5,6 +5,8 @@
     <div class="show-card">
       <% if @cocktail.photo.attached? %>
         <%= cl_image_tag @cocktail.photo.key, crop: :fill, class: "show-card-img", alt: "Card image cap" %>
+      <% else %>
+        <img class="show-card-img" src=<%= @cocktail.picture_url %>>
       <% end %>
       <div class="show-card-body">
         <div class="d-flex align-items-center mb-5">

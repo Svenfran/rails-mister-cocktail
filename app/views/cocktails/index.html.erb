@@ -8,6 +8,8 @@
           <div class="card mb-3">
             <% if cocktail.photo.attached? %>
               <%= cl_image_tag cocktail.photo.key, crop: :fill, class: "card-img-top", alt: "Card image cap" %>
+            <% else %>
+              <img class="card-img-top" src=<%= cocktail.picture_url %>>
             <% end %>
             <div class="card-body">
               <h5><%= cocktail.name %></h5>

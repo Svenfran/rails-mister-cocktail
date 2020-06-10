@@ -10,12 +10,13 @@ require 'open-uri'
 
 
 # DESTROY EXIXTING DATA
-
+puts 'Destroying all data'
 Ingredient.destroy_all
-# Cocktail.destroy_all
+Cocktail.destroy_all
+Dose.destroy_all
 
 # GENERATE INGREDIENTS
-
+puts 'Generating list of Ingredients'
 Ingredient.create(name: "Lemon")
 Ingredient.create(name: "Ice")
 Ingredient.create(name: "Mint Leaves")
@@ -31,7 +32,7 @@ result['drinks'].each do |item|
 end
 
 # GET DRINK IDs
-
+puts 'Get Drink ids'
 url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic'
 list_cocktials = open(url).read
 result = JSON.parse(list_cocktials)
@@ -41,21 +42,33 @@ result['drinks'].each do |item|
 end
 
 # CREATE COCKTAILS
-
+puts 'Create Cocktails'
 drink_ids.each do |id|
   url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{id}"
   cocktail_details = open(url).read
   result = JSON.parse(cocktail_details)
 
-  Cocktail.create(name: result['drinks'][0]['strDrink'])
+  cocktail = Cocktail.create(name: result['drinks'][0]['strDrink'], picture_url: result['drinks'][0]['strDrinkThumb'])
   
   ingredients = Ingredient.all
+  ingredients_hash = {}
 
+  ingredients.each do |ingredient|
+    n = 0
+    15.times do
+      n += 1
+      if ingredient['name'] == result['drinks'][0]["strIngredient#{n}"]
+        ingredients_hash[ingredient['id']] = result['drinks'][0]["strMeasure#{n}"] # key = ingredient id; value = dose description
+      end
+    end
+  end
+
+  ingredients_hash.each do |key, value|
+    Dose.create(
+      description: value,
+      cocktail_id: cocktail.id,
+      ingredient_id: key
+    )
+  end
 end
-# n = 1
-#   15.times do
-#     n += 1
-#     p name = result['strDrink']
-#     p ingredient = result["strIngredient#{n}"]
-#     p dose = result["strMeasure#{n}"]
-#   end
+puts 'Finished!'
