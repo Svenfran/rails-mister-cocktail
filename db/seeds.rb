@@ -11,9 +11,9 @@ require 'open-uri'
 
 # DESTROY EXIXTING DATA
 puts 'Destroying all data'
-Ingredient.destroy_all
 Cocktail.destroy_all
 Dose.destroy_all
+Ingredient.destroy_all
 
 # GENERATE INGREDIENTS
 puts 'Generating list of Ingredients'
